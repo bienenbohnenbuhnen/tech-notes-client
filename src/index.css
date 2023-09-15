@@ -33,6 +33,11 @@
   margin-bottom: 0.5em;
 }
 
+.errmsg a:any-link {
+  color: var(--ERROR);
+  text-decoration: underline;
+}
+
 .nowrap {
   white-space: nowrap;
 }
@@ -244,7 +249,6 @@ tr {
   color: var(--STATUS-COMPLETE);
 }
 
-
 /* || FORM - GENERAL */
 
 .form {
@@ -288,7 +292,6 @@ tr {
   border: 1px solid red;
   outline: 1px solid red;
 }
-
 
 .form__checkbox {
   width: 24px;
@@ -336,7 +339,6 @@ tr {
 }
 
 @media screen and (min-width: 768px) {
-
   body {
     font-size: 1.25rem;
   }
@@ -360,7 +362,7 @@ tr {
   .note__created,
   .note__updated,
   .note__username {
-    display: block
+    display: block;
   }
 
   .form__action-buttons {
