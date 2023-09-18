@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useAddNewUserMutation } from "./usersApiSlice";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -61,16 +61,17 @@ const NewUserForm = () => {
   const options = Object.values(ROLES).map((role) => {
     return (
       <option key={role} value={role}>
+        {" "}
         {role}
       </option>
     );
   });
 
   const errClass = isError ? "errmsg" : "offscreen";
-  const validUserClass = !validUsername ? "form_input--incomplete" : "";
-  const validPwdClass = !validPassword ? "form_input--incomplete" : "";
+  const validUserClass = !validUsername ? "form__input--incomplete" : "";
+  const validPwdClass = !validPassword ? "form__input--incomplete" : "";
   const validRolesClass = !Boolean(roles.length)
-    ? "form_input--incomplete"
+    ? "form__input--incomplete"
     : "";
 
   const content = (
@@ -81,7 +82,7 @@ const NewUserForm = () => {
         <div className="form__title-row">
           <h2>New User</h2>
           <div className="form__action-buttons">
-            <button className="icon-button" title="save" disabled={!canSave}>
+            <button className="icon-button" title="Save" disabled={!canSave}>
               <FontAwesomeIcon icon={faSave} />
             </button>
           </div>
@@ -98,6 +99,7 @@ const NewUserForm = () => {
           value={username}
           onChange={onUsernameChanged}
         />
+
         <label className="form__label" htmlFor="password">
           Password: <span className="nowrap">[4-12 chars incl. !@#$%]</span>
         </label>
@@ -106,17 +108,17 @@ const NewUserForm = () => {
           id="password"
           name="password"
           type="password"
-          autoComplete="off"
           value={password}
           onChange={onPasswordChanged}
         />
+
         <label className="form__label" htmlFor="roles">
           ASSIGNED ROLES:
         </label>
         <select
-          className={`form__select ${validRolesClass}`}
           id="roles"
           name="roles"
+          className={`form__select ${validRolesClass}`}
           multiple={true}
           size="3"
           value={roles}
@@ -127,7 +129,7 @@ const NewUserForm = () => {
       </form>
     </>
   );
+
   return content;
 };
-
 export default NewUserForm;
